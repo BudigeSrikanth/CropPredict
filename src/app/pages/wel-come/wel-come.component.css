@@ -1,0 +1,17 @@
+.page-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-image: url('/./assets/images/crop.jpg');
+    background-size: cover;
+    background-position: center;
+    margin-top: 5px;
+  }
+  
+  .title {
+    font-weight: bold;
+    color: white;
+    text-align: center;
+  }
+  

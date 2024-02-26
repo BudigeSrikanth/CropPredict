@@ -1,0 +1,19 @@
+:host {
+    height: inherit;
+    width: inherit;
+  }
+  
+  #font-styles{
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 13px;
+    line-height: 10px;
+    letter-spacing: 0.05em;
+  }
+
+
+  .nav-tabs-items> li  > button {
+    cursor: pointer;
+    font-size: 1.2rem;
+}

@@ -1,0 +1,44 @@
+<ng-container *ngIf="!isUserLoggedIn">
+<div class="modal-body d-flex justify-content-end">
+  <ul class="nav nav-tabs nav-tabs-line myTab_b nav-tabs-items" id="myTab">
+    <li class="nav-item" role="presentation">
+        <button class="nav-link" [ngClass]="{'active':activeTab === 1}"  data-toggle="tab" (click)="setActiveTab(1)">Home</button>
+    </li>
+    <li class="nav-item" role="presentation">
+      <button class="nav-link" [ngClass]="{'active':activeTab === 2}"  data-toggle="tab" (click)="setActiveTab(2)">About</button>
+    </li>
+    <li class="nav-item" role="presentation">
+        <button class="nav-link" [ngClass]="{'active':activeTab === 3}" data-toggle="tab"  (click)="setActiveTab(3)">Sign In</button>
+    </li>
+    <li class="nav-item" role="presentation">
+        <button class="nav-link" [ngClass]="{'active':activeTab === 4}" data-toggle="tab" (click)="setActiveTab(4)">Register</button>
+    </li>
+    <li class="nav-item" role="presentation">
+      <button class="nav-link" [ngClass]="{'active':activeTab === 5}"  data-toggle="tab" (click)="setActiveTab(5)"></button>
+    </li>
+</ul>
+</div>
+<app-wel-come *ngIf="activeTab === 1"></app-wel-come>
+<app-
+<!-- <app-about *ngIf="activeTab === 2"></app-about> -->
+<app-log-in *ngIf="activeTab === 3" (loginTab)="changeLoginTab($event)"></app-log-in>
+<app-sign-up *ngIf="activeTab === 4" (activeTab)="changeSignUpTab($event)"></app-sign-up>
+</ng-container>
+
+
+<ng-container *ngIf="isUserLoggedIn">
+  <div class="modal-body d-flex justify-content-end">
+    <ul class="nav nav-tabs nav-tabs-line myTab_b nav-tabs-items" id="myTab">
+      <li class="nav-item" role="presentation">
+          <button class="nav-link" [ngClass]="{'active':activeTab === 6}"  data-toggle="tab" (click)="setActiveTab(6)">Crop Predict</button>
+      </li>
+      <li class="nav-item" role="presentation">
+        <button class="nav-link" [ngClass]="{'active':activeTab === 7}"  data-toggle="tab" (click)="setActiveTab(7)">Preview</button>
+      </li>
+      <li class="nav-item" role="presentation">
+          <button class="nav-link" [ngClass]="{'active':activeTab === 8}" data-toggle="tab"  (click)="setActiveTab(8)">SignOut</button>
+      </li>
+  </ul>
+  </div>
+  <app-crop-recommend *ngIf="activeTab === 6"></app-crop-recommend>
+</ng-container>
