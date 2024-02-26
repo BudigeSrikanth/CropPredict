@@ -11,6 +11,7 @@ export class SignUpComponent implements OnInit {
   userForm: FormGroup;
   userRegisterData: any = [];
   @Output() signUpTab = new EventEmitter<number>();
+  
   constructor(
     private fb: FormBuilder,
     private toaster: ToastService
