@@ -13,6 +13,7 @@ import { LogInComponent } from './pages/log-in/log-in.component';
 import { SignUpComponent } from './pages/sign-up/sign-up.component';
 import { CropRecommendComponent } from './pages/crop-recommend/crop-recommend.component';
 import { HttpClientModule } from '@angular/common/http';
+import { DashboardComponent } from './pages/dashboard/dashboard.component';
 
 
 @NgModule({
@@ -23,7 +24,8 @@ import { HttpClientModule } from '@angular/common/http';
       LogInComponent,
       SignUpComponent,
       AboutComponent,
-      CropRecommendComponent
+      CropRecommendComponent,
+      DashboardComponent
    ],
   imports: [
     BrowserModule,

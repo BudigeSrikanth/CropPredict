@@ -1,0 +1,18 @@
+.welcome-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh; /* Set minimum height for full view */
+  }
+  
+  .welcome-message {
+    text-align: center;
+    margin: 0 20px;
+  }
+  
+  .image1, .image2 {
+    width: 30%;
+    /* Adjust width as needed */
+    margin: 0 10px;
+    border-radius: 10%;
+  }
