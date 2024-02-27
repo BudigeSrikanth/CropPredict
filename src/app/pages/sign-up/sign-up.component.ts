@@ -3,6 +3,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ToastService } from '../../shared/services/toast.service';
 
 export interface UserModel {
+  id: number,
   username: string,
   email: string,
   password: string
