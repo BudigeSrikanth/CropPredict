@@ -3,17 +3,17 @@
 <form [formGroup]="userForm" (ngSubmit)="onSubmit()">
   <div class="input-row mt-4">
     <label for="username">Username</label>
-    <input type="text" class="form-control" formControlName="username" >
+    <input type="text" class="form-control" formControlName="username" autocomplete="off">
     <label *ngIf="f['username'].touched  && f['username'].errors && f['username'].errors['required']" class="text-danger fw-bolder">Please Enter UserName</label>
   </div>
   <div class="input-row mt-4">
     <label for="email">Email</label>
-    <input type="email" class="form-control" formControlName="email">
+    <input type="email" class="form-control" formControlName="email" autocomplete="off">
     <label *ngIf="f['email'].touched  && f['email'].errors && f['email'].errors['required']" class="text-danger fw-bolder">Please Enter Email</label>
   </div>
   <div class="input-row mt-4">
     <label for="password">Password</label>
-    <input type="password" class="form-control" formControlName="password">
+    <input type="password" class="form-control" formControlName="password" autocomplete="off">
     <label *ngIf="f['password'].touched  && f['password'].errors && f['password'].errors['required']" class="text-danger fw-bolder">Please Enter Password</label>
   </div>
   <button type="submit" class="btn btn-primary">Register</button>

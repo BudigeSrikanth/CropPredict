@@ -1,8 +1,7 @@
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
-import { Form, FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
-import { BusinessService } from '../../shared/services/business.service';
-import { UserModel } from '../sign-up/sign-up.component';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { AlertService } from '../../shared/services/alert.service';
+import { UserModel } from '../../shared/models/user-model';
 
 @Component({
   selector: 'app-log-in',
@@ -14,7 +13,7 @@ export class LogInComponent implements OnInit {
   @Output() loginTab = new EventEmitter<number>();
   constructor(
     private fb: FormBuilder,
-    // public modal: NgbActiveModal,
+    private alertService: AlertService,
     ) {
     this.loginForm = this.fb.group({
       username: ['', Validators.required], 
@@ -55,7 +54,7 @@ export class LogInComponent implements OnInit {
       if (!matchFound) {
         errorMessage.add('Username and Password Not Matched');
         if(errorMessage.size  > 0){
-          alert([...errorMessage].join('\n'));
+          this.alertService.error([...errorMessage]);
         }
       } else{
         this.loginTab.emit(6);

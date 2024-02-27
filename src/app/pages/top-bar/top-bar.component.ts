@@ -38,6 +38,7 @@ export class TopBarComponent implements OnInit {
 
   changeSignUpTab(tab){
    this.activeTab = tab;
+   this.isUserLoggedIn = false;
   }
 
   changeLoginTab(tab){

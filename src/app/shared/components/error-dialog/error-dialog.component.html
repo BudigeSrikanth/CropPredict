@@ -1,0 +1,13 @@
+<div class="modal-header">
+  <div class="d-grid gap-2 mx-auto">
+    <h4 class="modal-title w-100 text-center">Oops!</h4>	
+  </div>				
+</div>
+<div class="modal-body">
+  <p class="text-left text-dark" *ngFor="let message of messages">
+    {{message}}
+  </p>
+</div>
+  <div class="d-grid gap-2 col-2 mx-auto mb-2">
+    <button class="btn btn-danger btn-block" (click)="onClose()">Close</button>
+</div>
