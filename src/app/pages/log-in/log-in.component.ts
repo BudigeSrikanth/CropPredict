@@ -2,6 +2,7 @@ import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { Form, FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
 import { BusinessService } from '../../shared/services/business.service';
+import { UserModel } from '../sign-up/sign-up.component';
 
 @Component({
   selector: 'app-log-in',
@@ -35,13 +36,17 @@ export class LogInComponent implements OnInit {
     return;
   }
   const {username, password} = this.loginForm.value;
-  const userRegisterDataString = localStorage.getItem('user_register_data') as string;
-  const userRegisterData = JSON.parse(userRegisterDataString)
+  let userExistedData = [];
+  if (localStorage.getItem(`user_register_data`)) {
+    userExistedData = JSON.parse(
+      localStorage.getItem(`user_register_data`),
+    ) as UserModel[];
+  }
     let errorMessage: Set<string> = new Set<string>();
     let matchFound = false;
 
-    if (userRegisterData.length > 0) {
-      userRegisterData.forEach((item: any) => {
+    if (userExistedData.length > 0) {
+      userExistedData.forEach((item: any) => {
         if (item.username === username && item.password === password) {
           matchFound = true;
         }

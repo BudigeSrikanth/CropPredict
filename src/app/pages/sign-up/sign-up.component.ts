@@ -2,6 +2,11 @@ import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ToastService } from '../../shared/services/toast.service';
 
+export interface UserModel {
+  username: string,
+  email: string,
+  password: string
+}
 @Component({
   selector: 'app-sign-up',
   templateUrl: './sign-up.component.html',
@@ -24,6 +29,12 @@ export class SignUpComponent implements OnInit {
    }
 
   ngOnInit() {
+    if (localStorage.getItem(`user_register_data`)) {
+      return JSON.parse(
+        localStorage.getItem(`user_register_data`),
+      ) as UserModel[];
+    }
+    return [];
   }
 
   get f() {
@@ -34,9 +45,13 @@ export class SignUpComponent implements OnInit {
       this.userForm.markAllAsTouched();
       return;
     }
-    const userRegisterDataString = localStorage.getItem('user_register_data') as string;
-    this.userRegisterData = JSON.parse(userRegisterDataString)
-    let id =  this.userRegisterData.length + 1;
+    let userExistedData = [];
+    if (localStorage.getItem(`user_register_data`)) {
+      userExistedData = JSON.parse(
+        localStorage.getItem(`user_register_data`),
+      ) as UserModel[];
+    }
+    let id =  userExistedData.length + 1;
     const userData = {
       id:  id,
       ...this.userForm.value
