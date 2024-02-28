@@ -8,7 +8,7 @@
     <label *ngIf="f['username'].touched  && f['username'].errors && f['username'].errors['required']" class="text-danger fw-bolder">Please Enter Valid UserName</label>
   </div>
   <div class="input-row mt-4">
-    <label for="password">Password:</label>
+    <label>Password:</label>
     <input type="password" class="form-control" formControlName="password" autocomplete="off">
     <label *ngIf="f['password'].touched  && f['password'].errors && f['password'].errors['required']" class="text-danger fw-bolder">Please Enter Valid Password</label>
   </div>

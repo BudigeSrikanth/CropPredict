@@ -36,7 +36,7 @@ import { LogInComponent } from './pages/log-in/log-in.component';
     FormsModule ,
     CommonModule,
     HttpClientModule,
-    SharedModule
+    SharedModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
