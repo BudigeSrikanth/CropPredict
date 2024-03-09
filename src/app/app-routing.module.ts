@@ -7,10 +7,9 @@ import { SignUpComponent } from './pages/sign-up/sign-up.component';
 
 const routes: Routes = [
   { path: '', redirectTo:'/home', pathMatch: 'full' },
-  { path: 'home', component: TopBarComponent },
+  { path: 'home', component: TopBarComponent, children:[{ path: 'register', component: SignUpComponent },] },
   { path: 'about', component: AboutComponent },
   { path: 'login', component: LogInComponent },
-  { path: 'register', component: SignUpComponent },
   {path: 'admin', loadChildren: () => import('./modules/admin/admin.module').then((m) => m.AdminModule)}
 ];
 

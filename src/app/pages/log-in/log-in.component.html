@@ -1,18 +1,26 @@
-<div class="login-container">
-  <div style="border: 2px; border-color:blue">
-  <h1 class="mt-4">Sign In</h1>
+<section class="page-container">
+  <div class="custome-container">
+  <h2 class="text-center">Login</h2>
   <form [formGroup]="loginForm">
-  <div class="input-row mt-4">
-    <label for="username">Username:</label>
-    <input type="text" class="form-control" formControlName="username" autocomplete="off">
-    <label *ngIf="f['username'].touched  && f['username'].errors && f['username'].errors['required']" class="text-danger fw-bolder">Please Enter Valid UserName</label>
+    <div class="form-group">
+      <input type="email" placeholder="Email" formControlName="email" class="form-control email-input" />
+    </div>
+    <div class="form-group">
+      <input type="password" placeholder="Password" formControlName="password" class="form-control password-input" />
+      <span class="password-toggle" (click)="togglePasswordVisibility()">
+        {{ showPassword ? 'Hide' : 'Show' }}
+      </span>
+    </div>
+    <div class="form-group">
+      <input type="checkbox" id="rememberMe" />
+      <label for="rememberMe">Remember Me</label>
+      <!-- <a (click)="loginTab.emit(2)" style="margin-left: 60px;color: rgb(244, 242, 242);">Forgot Password?</a> -->
+    </div>
+    <button type="submit" class="btn btn-primary" (click)="onSignIn()">Login</button>
+  </form>
+  <div class="register-link">
+    <!-- <p>Don't have an account? <a routerLink="/home/register" style="color: aliceblue;">Register</a></p> -->
   </div>
-  <div class="input-row mt-4">
-    <label>Password:</label>
-    <input type="password" class="form-control" formControlName="password" autocomplete="off">
-    <label *ngIf="f['password'].touched  && f['password'].errors && f['password'].errors['required']" class="text-danger fw-bolder">Please Enter Valid Password</label>
-  </div>
-  <button class="btn btn-primary mt-4 mb-4" type="submit" (click)="onSignIn()">SignIn</button>
-</form>
 </div>
-</div>
+</section>
+

@@ -10,13 +10,14 @@ import { UserModel } from '../../shared/models/user-model';
 })
 export class LogInComponent implements OnInit {
   loginForm: FormGroup;
+  showPassword: boolean = false;
   @Output() loginTab = new EventEmitter<number>();
   constructor(
     private fb: FormBuilder,
     private alertService: AlertService,
     ) {
     this.loginForm = this.fb.group({
-      username: ['', Validators.required], 
+      email: ['', Validators.required], 
       password: ['', Validators.required]
     });
    }
@@ -28,13 +29,21 @@ export class LogInComponent implements OnInit {
   get f(){
     return this.loginForm.controls;
   }
-  
+
+  togglePasswordVisibility() {
+    this.showPassword = !this.showPassword;
+  }
+
+  onRegister(){
+    this.loginTab.emit(4);
+  }
+
   onSignIn(){
   if(this.loginForm.invalid){
     this.loginForm.markAllAsTouched();
     return;
   }
-  const {username, password} = this.loginForm.value;
+  const {email, password} = this.loginForm.value;
   let userExistedData = [];
   if (localStorage.getItem(`user_register_data`)) {
     userExistedData = JSON.parse(
@@ -46,7 +55,7 @@ export class LogInComponent implements OnInit {
 
     if (userExistedData.length > 0) {
       userExistedData.forEach((item: any) => {
-        if (item.username === username && item.password === password) {
+        if (item.email === email && item.password === password) {
           matchFound = true;
         }
       });
