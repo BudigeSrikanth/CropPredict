@@ -41,6 +41,7 @@ export class CropRecommendComponent implements OnInit {
   }
 
   onSubmit(){
+    this.cropResult = undefined;
    if(this.cropRecForm.invalid){
     this.cropRecForm.markAllAsTouched();
     return;
