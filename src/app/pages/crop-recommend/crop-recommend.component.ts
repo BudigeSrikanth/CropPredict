@@ -47,15 +47,16 @@ export class CropRecommendComponent implements OnInit {
    }
    const formData = this.cropRecForm.value;
    let itemResult;
-   let isInvalid = true;
+   let isInvalid = false;
    this.cropDataArray.forEach((item) => {
     if((+item.N >= formData.nitrogen) && (+item.P >= formData.phosporus) && (+item.K >= formData.potassium) && (+item.temperature >= formData.temperature) && (+item.humidity >= formData.humidity) && (+item.ph >= formData.ph)&& (+item.rainfall >= formData.rainfall)){
-        itemResult = item.label;
-    } else{
-      isInvalid = false;
-    }
+      console.log(item)  
+      itemResult = item.label;
+        isInvalid = true;
+        return;
+    } 
    });
-   if(!isInvalid){
+   if(isInvalid){
      this.cropResult = itemResult;
    } else{
     this.alertService.error(['Please Enter Valid Data']);
