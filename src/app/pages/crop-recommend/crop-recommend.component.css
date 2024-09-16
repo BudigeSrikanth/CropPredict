@@ -22,7 +22,7 @@ h1 {
 }
 
 .bg-image {
-    background-image: url('/./assets/images/fruits.jpg');
+    /* background-image: url('/./assets/images/fruits.jpg'); */
     background-size: cover;
     background-position: center;
     height: 100vh; /* Adjust the height as needed */
